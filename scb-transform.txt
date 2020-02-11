@@ -1,0 +1,44 @@
+<script type="text/javascript">
+
+function replaceAll(str, find, replace) {
+	return str.replace(new RegExp(find, 'g'), replace);
+}
+
+function getContent() {
+	var content = document.getElementById('textinput').value;
+	console.log("Content:");
+	console.log(content);
+	var jsonContent = document.getElementById('inputJson').value;
+	jsonContent = replaceAll(jsonContent,'"','""');
+	jsonContent = jsonContent.replace('px','json');
+	console.log(jsonContent);
+	var urlContent = document.getElementById('inputUrl').value;
+	console.log(urlContent);
+	var resultVar = content.replace('<jsonQuery>',jsonContent);
+	resultVar = resultVar.replace('<insertUrl>',urlContent)
+	console.log(resultVar);
+	document.getElementById("result2").value = resultVar;	
+}
+
+function copyToClipboard() {
+	var copyText = document.getElementById("result2");
+	copyText.select();
+	copyText.setSelectionRange(0,99999);
+	document.execCommand("copy");
+	console.log("Copied to clipboard");
+}
+</script>
+
+<div>​​​​​​​​​​​Start Mall:<br/>​​​<textarea id="textinput" rows="10" cols="40">let content = &quot; &lt;jsonQuery&gt; &quot;, Source = Json.Document(Web.Contents(&quot;&lt;insertUrl&gt;&quot;, [Content=Text.ToBinary(content)])) in Source </textarea>​​​​<br/></div>
+<div><br/>Url:
+<br/><input id="inputUrl" type="text"/>​</div>
+<div><br/>Json:
+<br/>​<textarea id="inputJson" rows="20" cols="40"></textarea></div>
+
+<br/>​<input type="button" value="Kör" onclick="getContent()"/>​ 
+<div>
+<div>Resultat:
+<br/><textarea id="result2" rows="20" cols="40"></textarea>
+</div>
+<br/><input type="button" value="Copy to clipboard" onclick="copyToClipboard()" />
+</div>
