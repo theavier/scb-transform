@@ -28,17 +28,12 @@ function copyToClipboard() {
 	console.log("Copied to clipboard");
 }
 </script>
-
-<div>​​​​​​​​​​​Start Mall:<br/>​​​<textarea id="textinput" rows="10" cols="40">let content = &quot; &lt;jsonQuery&gt; &quot;, Source = Json.Document(Web.Contents(&quot;&lt;insertUrl&gt;&quot;, [Content=Text.ToBinary(content)])) in Source </textarea>​​​​<br/></div>
-<div><br/>Url:
-<br/><input id="inputUrl" type="text"/>​</div>
-<div><br/>Json:
+<div>Start Mall:<br/><textarea id="textinput" rows="10" cols="40">let content = &quot; &lt;jsonQuery&gt; &quot;, Source = Json.Document(Web.Contents(&quot;&lt;insertUrl&gt;&quot;, [Content=Text.ToBinary(content)])) in Source </textarea>​​​​</div>
+<div>Url:
+<input id="inputUrl" type="text"/>​</div>
+<div>Json:
 <br/>​<textarea id="inputJson" rows="20" cols="40"></textarea></div>
-
-<br/>​<input type="button" value="Kör" onclick="getContent()"/>​ 
-<div>
+<div><input type="button" value="Kör" onclick="getContent()"/>​ </div>
 <div>Resultat:
-<br/><textarea id="result2" rows="20" cols="40"></textarea>
-</div>
-<br/><input type="button" value="Copy to clipboard" onclick="copyToClipboard()" />
-</div>
+<br/><textarea id="result2" rows="20" cols="40"></textarea></div>
+<div><input type="button" value="Copy to clipboard" onclick="copyToClipboard()" /></div>
